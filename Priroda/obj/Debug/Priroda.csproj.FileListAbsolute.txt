@@ -1,0 +1,10 @@
+C:\Users\Козыревы\source\repos\Priroda\Priroda\bin\Debug\Priroda.exe.config
+C:\Users\Козыревы\source\repos\Priroda\Priroda\bin\Debug\Priroda.exe
+C:\Users\Козыревы\source\repos\Priroda\Priroda\bin\Debug\Priroda.pdb
+C:\Users\Козыревы\source\repos\Priroda\Priroda\obj\Debug\Priroda.csproj.AssemblyReference.cache
+C:\Users\Козыревы\source\repos\Priroda\Priroda\obj\Debug\Priroda.Login.resources
+C:\Users\Козыревы\source\repos\Priroda\Priroda\obj\Debug\Priroda.Properties.Resources.resources
+C:\Users\Козыревы\source\repos\Priroda\Priroda\obj\Debug\Priroda.csproj.GenerateResource.cache
+C:\Users\Козыревы\source\repos\Priroda\Priroda\obj\Debug\Priroda.csproj.CoreCompileInputs.cache
+C:\Users\Козыревы\source\repos\Priroda\Priroda\obj\Debug\Priroda.exe
+C:\Users\Козыревы\source\repos\Priroda\Priroda\obj\Debug\Priroda.pdb

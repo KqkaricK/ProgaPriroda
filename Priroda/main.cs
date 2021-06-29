@@ -26,6 +26,18 @@ namespace Priroda
         public main()
         {
             InitializeComponent();
+            if (lv == 3)
+            {
+                tabControl1.SelectedTab = tabPage3;
+            }
+            else if (lv == 2)
+            {
+                tabControl1.SelectedTab = tabPage2;
+            }
+            else if (lv == 1)
+            {
+                tabControl1.SelectedTab = tabPage1;
+            }
             ZapolneniyData2();
             cn = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Directory.GetCurrentDirectory() + @"\User.accdb");
             cn.Open();
@@ -39,7 +51,7 @@ namespace Priroda
             int i = 0;
             while (i < 5)
             {
-                dataGridView2.Columns[i].ReadOnly = true;
+                dataGridView1.Columns[i].ReadOnly = true;
                 i++;
             }
             cn.Close();
@@ -59,47 +71,50 @@ namespace Priroda
             Application.Exit();
         }
 
-        private void tabPage2_Enter(object sender, EventArgs e) //Сохранение
+        private void tabPage2_Enter(object sender, EventArgs e) //Проверка
         {
             Cheklv(2);
         }
 
-        private void tabPage3_Enter(object sender, EventArgs e) //Сохранение
+        private void tabPage3_Enter(object sender, EventArgs e) //Проверка
         {
             Cheklv(3);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) //Смена пользователя
         {
             Relogin z = new Relogin();
             z.ShowDialog();
             if (z.tmp == 3)
             {
                 lv = 3;
+                tabControl1.SelectedTab = tabPage3;
             }
             else if (z.tmp == 2)
             {
                 lv = 2;
+                tabControl1.SelectedTab = tabPage2;
             }
             else if (z.tmp == 1)
             {
                 lv = 1;
+                tabControl1.SelectedTab = tabPage1;
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e) //Сохранение
         {
             cb = new OleDbCommandBuilder(da);
             da.Update(dt);
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e) //Сохранение
         {
             cb = new OleDbCommandBuilder(da);
             da.Update(dt);
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e) //
         {
             foreach (DataGridViewRow row in dataGridView4.Rows)
             {
@@ -113,7 +128,7 @@ namespace Priroda
             }
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void button6_Click(object sender, EventArgs e) //
         {
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
             {
@@ -133,7 +148,7 @@ namespace Priroda
             }
         }
         
-        void ZapolneniyData2()
+        void ZapolneniyData2() //заполнение 2 табл
         {
             dataGridView4.ColumnCount = 6;
             dataGridView4.Columns[0].Name = "Код";
@@ -158,7 +173,7 @@ namespace Priroda
             dataGridView6.Columns[5].Name = "Количество";
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void button7_Click(object sender, EventArgs e) //удаление
         {
             foreach (DataGridViewRow row in dataGridView4.SelectedRows)
             {
@@ -169,7 +184,7 @@ namespace Priroda
             }
         }
 
-        private void button8_Click(object sender, EventArgs e)
+        private void button8_Click(object sender, EventArgs e) //doc
         {
             SaveFileDialog sfd = new SaveFileDialog();
 
@@ -183,7 +198,7 @@ namespace Priroda
             }
         }
 
-        private void button10_Click(object sender, EventArgs e)
+        private void button10_Click(object sender, EventArgs e) //очистка
         {
             dataGridView4.Rows.Clear();
             dataGridView5.Rows.Clear();
@@ -191,7 +206,7 @@ namespace Priroda
             ZapolneniyData2();
         }
 
-        public void Export_Data_To_Word(DataGridView DGV, string filename)
+        public void Export_Data_To_Word(DataGridView DGV, string filename) 
         {
             if (DGV.Rows.Count != 0)
             {
@@ -293,6 +308,34 @@ namespace Priroda
                 //save
                 oDoc.SaveAs2(filename);
             }
+        }
+
+        private void dataGridView4_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            TextBox tbViewEdit = e.Control as TextBox;
+            if (tbViewEdit != null)
+            {
+                tbViewEdit.TextChanged += new EventHandler(tbViewEdit_TextChanged);
+            }
+        }
+        private void tbViewEdit_TextChanged(object sender, EventArgs e)
+        {
+            TextBox dgCellEdit = (TextBox)sender;
+            if (dgCellEdit.Text == "")
+            {
+
+            }
+            else
+            {
+                int a = Convert.ToInt32(dgCellEdit.Text);
+                int i = Convert.ToInt32(dataGridView4.Rows[dataGridView4.CurrentCell.RowIndex].Cells[0].Value.ToString());
+                a = a * Convert.ToInt32(dataGridView1.Rows[i - 1].Cells[4].Value.ToString());
+                dataGridView4.Rows[dataGridView4.CurrentCell.RowIndex].Cells[4].Value = a;
+                a = Convert.ToInt32(dgCellEdit.Text);
+                a = a * Convert.ToInt32(dataGridView1.Rows[i - 1].Cells[3].Value.ToString());
+                dataGridView4.Rows[dataGridView4.CurrentCell.RowIndex].Cells[3].Value = a;
+            }
+
         }
     }
 }

@@ -1,0 +1,10 @@
+C:\Users\andre\OneDrive\Код\Priroda\Priroda\bin\x86\Debug\Priroda.exe.config
+C:\Users\andre\OneDrive\Код\Priroda\Priroda\bin\x86\Debug\Priroda.exe
+C:\Users\andre\OneDrive\Код\Priroda\Priroda\bin\x86\Debug\Priroda.pdb
+C:\Users\andre\OneDrive\Код\Priroda\Priroda\obj\x86\Debug\Priroda.csproj.AssemblyReference.cache
+C:\Users\andre\OneDrive\Код\Priroda\Priroda\obj\x86\Debug\Priroda.Login.resources
+C:\Users\andre\OneDrive\Код\Priroda\Priroda\obj\x86\Debug\Priroda.Properties.Resources.resources
+C:\Users\andre\OneDrive\Код\Priroda\Priroda\obj\x86\Debug\Priroda.csproj.GenerateResource.cache
+C:\Users\andre\OneDrive\Код\Priroda\Priroda\obj\x86\Debug\Priroda.csproj.CoreCompileInputs.cache
+C:\Users\andre\OneDrive\Код\Priroda\Priroda\obj\x86\Debug\Priroda.exe
+C:\Users\andre\OneDrive\Код\Priroda\Priroda\obj\x86\Debug\Priroda.pdb
